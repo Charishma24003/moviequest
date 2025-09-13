@@ -20,6 +20,13 @@ const MovieList = () => {
         fetchMovies();
     },[]);
 
+    useEffect(()=>{
+        if(sort.by!=="default"){
+        const sortedMovies=_.orderBy(filterMovies,[sort.by],[sort.order])
+        setFilterMovies(sortedMovies); 
+        }
+    },[sort])
+
     const fetchMovies=async()=>{
         const response=await fetch("https://api.themoviedb.org/3/movie/popular?api_key=1dd6751dc1c919f8130ce6f1e560e4c3");
         const data=await response.json();
@@ -42,7 +49,7 @@ const MovieList = () => {
     const handleSort=e=>{
         const{name,value}=e.target;
         setSort(prev=>({...prev,[name]:value}))
-        
+        // console.log(sort);
     };
 
   return (
