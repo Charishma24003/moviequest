@@ -4,6 +4,7 @@ import './MovieList.css';
 
 import Fire from '../../assets/fire.png';
 import MovieCard from './MovieCard';
+import FilterGroup from './FilterGroup';
 
 const MovieList = () => {
 
@@ -40,7 +41,7 @@ const MovieList = () => {
             <h2 className="align_center movie_list_heading">Popular <img src={Fire} alt="Fire emoji" className='navbar_emoji'/></h2>
             
             <div className="align_center movie_list_fs">
-                
+                <FilterGroup minRating={minRating} onRatingClick={handleFilter} ratings={[8,7,6]}/>
 
                 <select name="" id="" className="movie_sorting">
                     <option value="">Sort By</option>
