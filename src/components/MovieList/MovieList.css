@@ -1,3 +1,4 @@
+
 .movie_list_header {
   padding: 10px 30px;
   justify-content: space-between;
@@ -22,15 +23,16 @@
 
 .movie_filter_item.active{
    border-bottom: 1px solid #00ff95;
-   font-weight: 600;
+   font-weight: 500;
 }
 
-.sorting{
+.movie_sorting{
     border: none;
     outline: none;
-    border-radius: 5px0;
+    border-radius: 5px;
     font-size: 16px;
     font-weight: 500;
+    font-family: inherit;
     height: 30px;
     padding: 0 5px;
     margin: 0 10px;
