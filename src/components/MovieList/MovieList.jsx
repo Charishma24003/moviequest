@@ -25,7 +25,7 @@ const MovieList = () => {
         const sortedMovies=_.orderBy(filterMovies,[sort.by],[sort.order])
         setFilterMovies(sortedMovies); 
         }
-    },[sort])
+    },[sort,filterMovies])
 
     const fetchMovies=async()=>{
         const response=await fetch("https://api.themoviedb.org/3/movie/popular?api_key=1dd6751dc1c919f8130ce6f1e560e4c3");
