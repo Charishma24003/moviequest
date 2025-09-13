@@ -52,7 +52,7 @@ const MovieList = ({type,title,emoji}) => {
     };
 
   return (
-    <section className="movie_list">
+    <section className="movie_list" id={type}>
         <header className='align_center movie_list_header'>
             <h2 className="align_center movie_list_heading">{title}{" "} <img src={emoji} alt={`${emoji} icon`} className='navbar_emoji'/></h2>
             

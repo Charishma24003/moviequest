@@ -14,12 +14,12 @@ const Navbar = () => {
 
     <div className="navbar_links">
       
-        <a href="/">Popular<img src={Fire} alt="Fire emoji" className='navbar_emoji'/></a>
+        <a href="#popular">Popular<img src={Fire} alt="Fire emoji" className='navbar_emoji'/></a>
 
-        <a href="/">Top Rated<img src={Star} alt="Star emoji" className='navbar_emoji'/></a>
+        <a href="#top_rated">Top Rated<img src={Star} alt="Star emoji" className='navbar_emoji'/></a>
 
 
-        <a href="/">Upcoming<img src={Party} alt="Party emoji" className='navbar_emoji'/></a>
+        <a href="#upcoming">Upcoming<img src={Party} alt="Party emoji" className='navbar_emoji'/></a>
 
     </div>
   </nav>
