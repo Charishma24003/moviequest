@@ -1,4 +1,11 @@
-.app{
+.app {
   display: grid;
   grid-template-rows: 80px auto;
 }
+
+/* Debug */
+/* * {
+  border: 1px solid red;
+} */
+
+/* Debug */

@@ -6,6 +6,14 @@
     border-bottom: 1px solid #e6e6e6;
 }
 
+.navbar a:hover {
+    color: #ff80ab;
+}
+
+.navbar h1:hover {
+    color: #ff80ab;
+}
+
 .navbar>h1 {
     font-size: 40px;
     color: #fff;
@@ -40,7 +48,8 @@
 }
 
 .navbar_search input {
-    width: 100%;
+    width: 500px;
+    font-size: 25px;
     padding: 6px 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -49,6 +58,7 @@
 
 .search_btn {
     padding: 6px 12px;
+    font-size: 25px;
     border: none;
     background: #f7f5f5;
     color: #000;
