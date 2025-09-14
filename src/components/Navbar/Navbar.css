@@ -32,3 +32,30 @@
     height: 25px;
     margin-left: 7px;
 }
+
+.navbar_search{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+.navbar_search input{
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+}
+
+.search_btn{
+    padding: 6px 12px;
+    border: none;
+    background: #f7f5f5;
+    color: #000;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.search_btn:hover{
+    background: #2e2d2d;
+    color: #fff;
+}
+

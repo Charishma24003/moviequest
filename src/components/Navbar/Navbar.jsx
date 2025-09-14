@@ -22,6 +22,8 @@ const Navbar = ({onSearch}) => {
     <form className='navbar_search' onSubmit={handleSubmit}>
       <input type="text" placeholder='Search movies...' value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)} />
 
+      <button type="submit" className='search_btn'>Search</button>
+
     </form>
 
     <div className="navbar_links">
