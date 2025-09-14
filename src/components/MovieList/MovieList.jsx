@@ -22,7 +22,6 @@ const MovieList = ({ type, title, emoji }) => {
     setMovies(data.results);
     setFilterMovies(data.results);
   }, [type]);
-  
   useEffect(() => {
     fetchMovies();
   }, [fetchMovies]);
