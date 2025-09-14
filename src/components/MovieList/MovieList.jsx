@@ -5,7 +5,7 @@ import "./MovieList.css";
 import MovieCard from "./MovieCard";
 import FilterGroup from "./FilterGroup";
 
-const MovieList = ({ type, title, emoji }) => {
+const MovieList = ({ type, title, emoji, movies: propMovies }) => {
   const [movies, setMovies] = useState([]);
   const [filterMovies, setFilterMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
@@ -14,26 +14,41 @@ const MovieList = ({ type, title, emoji }) => {
     order: "asc",
   });
 
-   const fetchMovies = useCallback(async () => {
-
-    let allMovies=[];
-    for(let page=1;page<=5;page++){
-        const response = await fetch(
-            `https://api.themoviedb.org/3/movie/${type}?api_key=1dd6751dc1c919f8130ce6f1e560e4c3&page=${page}`
-        );
-        const data = await response.json();
-        allMovies=[...allMovies,...data.results];
-    }
-    setMovies(allMovies);
-    setFilterMovies(allMovies);
+  const fetchMovies = useCallback(async () => {
+    if (!type) return;
+    // let allMovies=[];
+    //  for(let page=1;page<=5;page++){
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${type}?api_key=1dd6751dc1c919f8130ce6f1e560e4c3&page=1`
+    );
+    const data = await response.json();
+    //     allMovies=[...allMovies,...data.results];
+    //  }
+    setMovies(data.results || []);
+    setFilterMovies(data.results || []);
   }, [type]);
-  useEffect(() => {
-    fetchMovies();
-  }, [fetchMovies]);
 
   useEffect(() => {
-    setMinRating(4);
-  }, []);
+    if (propMovies) {
+      setMovies(propMovies);
+      setFilterMovies(propMovies);
+    }
+  }, [propMovies]);
+
+  useEffect(() => {
+    if (type) {
+      fetchMovies();
+    }
+  }, [fetchMovies, type]);
+
+  //   useEffect(() => {
+  //     if(sort.by!=="default"{
+  //         const sortedMovies = _.orderBy(filterMovies, [sort.by], [sort.order]);
+  //         setFilterMovies(sortedMovies);
+  //     }
+  //   },[sort,filterMovies]);
+  //     setMinRating(4);
+  //   }, []);
 
   useEffect(() => {
     if (sort.by !== "default") {
@@ -41,8 +56,6 @@ const MovieList = ({ type, title, emoji }) => {
       setFilterMovies(sortedMovies);
     }
   }, [sort, filterMovies]);
-
- 
 
   const handleFilter = (rate) => {
     if (rate == minRating) {
@@ -62,11 +75,13 @@ const MovieList = ({ type, title, emoji }) => {
   };
 
   return (
-    <section className="movie_list" id={type}>
+    <section className="movie_list" id={type || "search"}>
       <header className="align_center movie_list_header">
         <h2 className="align_center movie_list_heading">
           {title}{" "}
-          <img src={emoji} alt={`${emoji} icon`} className="navbar_emoji" />
+          {emoji && (
+            <img src={emoji} alt={`${emoji} icon`} className="navbar_emoji" />
+          )}
         </h2>
 
         <div className="align_center movie_list_fs">

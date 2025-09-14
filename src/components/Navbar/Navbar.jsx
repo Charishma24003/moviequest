@@ -17,7 +17,9 @@ const Navbar = ({onSearch}) => {
     }
   };
   return (<nav className='navbar'>
-    <h1>MovieQuest</h1>
+<h1 style={{ cursor: "pointer" }} onClick={() => window.location.reload()}>
+  MovieQuest
+</h1>
 
     <form className='navbar_search' onSubmit={handleSubmit}>
       <input type="text" placeholder='Search movies...' value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)} />
