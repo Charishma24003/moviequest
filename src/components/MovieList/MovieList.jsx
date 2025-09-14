@@ -17,7 +17,11 @@ const MovieList = ({type,title,emoji}) => {
 
     useEffect(() => {
         fetchMovies();
-    },[]);
+    });
+
+    useEffect(() => {
+        setMinRating(4);  
+    }, []);  
 
     useEffect(()=>{
         if(sort.by!=="default"){
