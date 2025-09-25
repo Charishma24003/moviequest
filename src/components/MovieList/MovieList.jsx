@@ -19,7 +19,7 @@ const MovieList = ({ type, title, emoji, movies: propMovies }) => {
     // let allMovies=[];
     //  for(let page=1;page<=5;page++){
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${type}?api_key=1dd6751dc1c919f8130ce6f1e560e4c3&page=1`
+      `https://api.themoviedb.org/3/movie/${type}?api_key=' '`
     );
     const data = await response.json();
     //     allMovies=[...allMovies,...data.results];

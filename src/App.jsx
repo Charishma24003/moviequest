@@ -27,7 +27,7 @@ const App = () => {
   const handleSearch=async(newQuery)=>{
     setQuery(newQuery);
     setPage(1);
-    const response=await fetch(`https://api.themoviedb.org/3/search/movie?api_key=1dd6751dc1c919f8130ce6f1e560e4c3&query=${newQuery}&page=1`);
+    const response=await fetch(`https://api.themoviedb.org/3/search/movie?api_key=''&query=${newQuery}&page=1`);
     const data=await response.json();
     setSearchResult(uniqueById(data.results||[]));
     setTotalPages(data.total_pages||1);
@@ -37,7 +37,7 @@ const App = () => {
       const nextPage=page+1;
       if(nextPage>totalPages)return;
 
-       const response=await fetch(`https://api.themoviedb.org/3/search/movie?api_key=1dd6751dc1c919f8130ce6f1e560e4c3&query=${query}&page=${nextPage}`);
+       const response=await fetch(`https://api.themoviedb.org/3/search/movie?api_key=' '&query=${query}&page=${nextPage}`);
 
        const data=await response.json();
 
